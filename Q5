@@ -1,0 +1,17 @@
+Q5: Imput and print sum of 2 floating point numbers upto 2 decimal places
+Ans:
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	float a,b;
+	cin>> a>>b;
+	float sum= a+b;
+	cout<<fixed<<setprecision(2)<<sum;
+	return 0;
+}
