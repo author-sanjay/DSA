@@ -1,0 +1,14 @@
+Q4: input and print sum of 2 floating point numbers
+Ans:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	float a,b;
+	cin>> a>>b;
+	cout<<a+b;
+	return 0;
+}
