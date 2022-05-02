@@ -22,3 +22,32 @@ int main(){
     
     return 0;
     }
+
+
+Q: same question using while loop
+ans:
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    vector<int> a; 
+    cout<<"Enter your size of array\n";
+    int n;
+    cin>>n;
+    int p;
+    int i=0;
+    while(i<n){
+        cin>>p;
+        a.push_back(p);
+        i++;
+    }
+    int j=0;
+    while(j<n){
+        cout<<a[j]<<" ";
+        j++;
+    }
+    
+    
+    return 0;
+    }
