@@ -1,0 +1,24 @@
+ Q6: Enter and print array using vector...
+ Ans:
+ 
+ #include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    vector<int> a; 
+    cout<<"Enter your size of array\n";
+    int n;
+    cin>>n;
+    int p;
+    for(int i=0;i<n;i++){
+        cin>>p;
+        a.push_back(p);
+    }
+    for(int i=0; i<n; i++){
+        cout<<a[i]<<" ";
+    }
+    
+    
+    return 0;
+    }
