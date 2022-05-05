@@ -1,12 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void reverse(string &a){
+	int n= a.length();
+	
+	for(int i=0; i<n/2;i++){
+		swap(a[i],a[n-1-i]);
+	}
+	cout<<a;
+}
+
 int main() {
 	// your code goes here
 	    string a;
     cin>>a;
-    for(int i=a.size()-1;i>=0;i--){
-        cout<<a[i];
-    }
+    reverse(a);
 	return 0;
 }

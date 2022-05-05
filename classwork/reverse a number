@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void sumofdigit(int n){
+
+	int reverse=0;
+	for(int i=0;n>0 ;i++){
+		int t=n%10;
+	
+		int remainder = n % 10;
+    reverse = reverse * 10 + remainder;
+    n =n/ 10;
+		
+	}
+	
+	// sum=sum+n;
+	cout<<reverse;
+}
+
+int main() {
+	// your code goes here
+ int n;
+ cin>>n;
+ sumofdigit(n);
+ 
+}
