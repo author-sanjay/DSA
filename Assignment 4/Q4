@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+void addDigits(int num) {
+        int sum=0;
+        while(num>0){
+            int t=num%10;
+            sum=sum+t;
+            num=num/10;
+        }
+        
+        
+        
+        if(sum/10>0){
+            addDigits(sum);
+        }
+        
+        else{
+        	cout<<sum;
+        }   
+        
+    }
+
+int main() {
+	// your code goes here
+	addDigits(38);
+	return 0;
+}
