@@ -1,0 +1,24 @@
+class Solution {
+public:
+    
+    ListNode* solve(ListNode* &n){
+    
+        if(n->next == NULL){
+            return n;
+        }
+        ListNode * g = solve(n->next);
+        n->next = NULL;
+        g->next = n;
+        return n;
+    }
+    
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL || head->next == NULL) return head;
+        ListNode* temp = head;
+        ListNode* ans ;
+        while(temp->next != NULL) temp = temp->next;
+        ans = temp;
+        solve(head);
+        return ans;
+    }
+};
