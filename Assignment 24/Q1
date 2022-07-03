@@ -1,0 +1,11 @@
+int Solution::solve(vector<int> &A, int B) {
+    int n = A.size();
+    int max = 0 ,suml=0, sumr = 0;
+    for(int i=0; i<B; i++){
+        suml+=A[i];
+        sumr+= A[n-B+i];
+        if(max<(suml-sumr))max = suml-sumr;
+    }
+    return sumr+max;
+
+}

@@ -1,0 +1,24 @@
+class Solution {
+public:
+
+vector<vector<int>> ss;
+vector<int> s;
+
+void helper(vector<int> &nums, int idx){
+    if(idx < 0){
+        ss.push_back(s);
+        return;
+    }
+    
+    helper(nums, idx-1);
+    s.push_back(nums[idx]);
+	
+    helper(nums, idx-1);
+    s.pop_back();
+}
+
+vector<vector<int>> subsets(vector<int>& nums) {
+    helper(nums, nums.size()-1);
+    return ss;
+}
+};
