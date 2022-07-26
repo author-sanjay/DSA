@@ -1,0 +1,41 @@
+//Got time limit exceed error in a test case passed 10/13 test cases
+
+class Solution {
+public:
+    
+    int partition(vector<int>&nums,int low,int high){
+        int pvt=nums[high];
+        int i=low-1;
+        
+        for(int j=low;j<high;j++){
+            if(nums[j]<pvt){
+                i++;
+                int temp = nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+            }
+        }
+        i++;
+        int temp=nums[i];
+        nums[i]=pvt;
+        nums[high]=temp;
+        
+        return i;
+    }
+    vector<int> quicksort(vector<int>& nums, int low,int high){
+        if(low<high){
+            int pvt=partition(nums,low,high);
+            
+            quicksort(nums,low,pvt-1);
+            quicksort(nums,pvt+1,high);
+        }
+        
+        return nums;
+    }
+    vector<int> sortArray(vector<int>& nums) {
+        int n=nums.size();
+        quicksort(nums,0,n-1);
+        
+        return nums;
+    }
+};
