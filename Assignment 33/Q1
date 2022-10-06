@@ -1,0 +1,35 @@
+var numIslands = function(grid) {
+    var count=0;
+    const visited=new Set();
+    for(let a=0;a<grid.length;a++){
+        for(let b=0;b<grid[0].length;b++){
+            if(check(grid,a,b,visited)===true){
+                count+=1;
+            }
+        }
+    }
+    return count;
+};
+
+const check=(grid,r,c,visited)=>{
+    const rowbound=((r>=0) && r<grid.length)
+    const colbound=((c>=0)&& c<grid.length)
+    if(!colbound || !rowbound){
+        return false
+    }
+
+    if(grid[r][c]=="0"){
+        return false
+    }
+
+    const pos=r+","+c
+    if(visited.has(pos)){return false}
+    visited.add(pos)
+    check(grid,r+1,c,visited)
+    check(grid,r-1,c,visited)
+    check(grid,r,c-1,visited)
+    check(grid,r,c+1,visited)
+    
+
+    return true
+}
