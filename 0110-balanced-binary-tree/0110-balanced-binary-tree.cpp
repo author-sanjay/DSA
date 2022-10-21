@@ -12,30 +12,32 @@
 class Solution {
 public:
     
-    int height(TreeNode* root){
+    pair<bool,int> advanceisBalanced(TreeNode* root){
         if(root==NULL){
-            return 0;
+            pair<bool,int> p =make_pair(true,0);
+            return p;
         }
         
-        int leftside=height(root->left);
-        int rightside=height(root->right);
+        pair<bool,int> left=advanceisBalanced(root->left);
+        pair<bool,int> right=advanceisBalanced(root->right);
         
-        return max(leftside,rightside)+1;
+        bool leftside=left.first;
+        bool rightside=right.first;
+        
+        bool height=abs(left.second-right.second) <=1;
+        
+        pair<bool,int> p;
+        p.second=max(left.second,right.second)+1;
+        
+        if(leftside && rightside && height){
+            p.first=true;
+        }else{
+            p.first=false;
+        }
+        return p;
     }
-    bool isBalanced(TreeNode* root) {
-        if(root==NULL){
-            return true;
-        }    
+    bool isBalanced(TreeNode* root) {    
         
-        bool left=isBalanced(root->left);
-        bool right=isBalanced(root->right);
-        
-        bool third=abs(height(root->left)-height(root->right))<=1;
-        
-        if(left && right && third){
-            return true;
-        }
-        
-        return false;
+        return advanceisBalanced(root).first;
     }
 };
