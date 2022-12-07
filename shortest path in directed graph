@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class graph{
+	unordered_map<int,list<pair<int,int>>> adj;
+	
+	void add(int edge,int v,int weight){
+		pair<int,int> p=make_pair(v,weight);
+		adj[edge].push_back(p);
+	}
+
+	void dfs(int node, unordered_map<int,bool> visited,stack<int>s,unordered_map<int,list<pair<int,int>>> adj){
+		visited[node]=true;
+		for(auto i:adj[node]){
+			if(!visited[i.first]){
+				dfs(i.first,visited,s,adj);
+			}
+		}
+		
+		s.push(node);
+	}
+	
+	void find(int src,vector<int> v,stack<int> topo,unordered_map<int,list<pair<int,int>>> adj){
+		v[src]=0
+		while(!topo.empty()){
+			int t=topo.top();
+			topo.pop();
+			if(v[t]!=INT_MAX){
+				for(auto i:adj[src]){
+					if(i.second+v[t]<v[i.first]){
+						v[i.first]=i.second+v[t];
+					}
+				}		
+			}
+		}
+		
+	}
+}
+
+
+
+int main() {
+	// your code goes here
+	
+	//Shortest path in directed acyclic graph
+	
+	unordered_map<int,bool> visited;
+	stack<int>s;
+	for(int i=0;i<n;i++){
+		if(!visited[i]){
+			dfs(i,visited,s,adj);
+		}
+	}
+	vector<int> v(n,INT_MIN);
+	return 0;
+}
